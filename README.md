@@ -1,38 +1,40 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Ignite Shop 🛒
+Projeto realizado no curso da Rocketseat🚀 na trilha React do Ignite. Nesse módulo criaremos um projeto completo com o framework Next.js. Vamos utilizar StitchesJS, passando por conceitos de SPA, server-side rendering (SSR) e static-site generation (SSG).
 
-## Getting Started
+<!-- <img src='./tela.gif' alt='git da tela da aplicação Dt Money'> -->
 
-First, run the development server:
+## Tecnologias usadas ⚙
+  - Next.js
+  - React.js
+  - Typescript
+  - Stitches
+  
 
-```bash
-npm run dev
-# or
+## Ultima atualização 🔃
+- Configurando Stitches e estilos globais;
+
+## Como utilizar
+- Clone o projeto do repositório
+```
+git clone https://github.com/RafaelMatos/igniteShop.git
+```
+- Acesse a pasta do projeto
+```
+cd igniteShop
+```
+- Instale as dependências 
+```
+yarn
+```
+<!-- - Execute o JSON Server
+```
+yarn dev:server
+``` -->
+- Execute o projeto
+```
 yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Acesse no navegador o endereço indicado no terminal
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<img src='./screenshots/endereco.png' alt='Imagem do terminal indicando endereço a ser acessado no navegador'>
