@@ -12,6 +12,7 @@ Projeto realizado no curso da Rocketseat🚀 na trilha React do Ignite. Nesse m�
 
 ## Ultima atualização 🔃
 - Configurando Stitches e estilos globais;
+- Adicionando componentes Home e Product;
 
 ## Como utilizar
 - Clone o projeto do repositório
