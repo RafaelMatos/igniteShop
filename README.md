@@ -8,11 +8,12 @@ Projeto realizado no curso da Rocketseat🚀 na trilha React do Ignite. Nesse m�
   - React.js
   - Typescript
   - Stitches
+  - Keen Slider
   
 
 ## Ultima atualização 🔃
-- Configurando Stitches e estilos globais;
 - Adicionando componentes Home e Product;
+- Usando Keen Slider para criar carrossel;
 
 ## Como utilizar
 - Clone o projeto do repositório
