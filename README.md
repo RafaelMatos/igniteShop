@@ -9,11 +9,12 @@ Projeto realizado no curso da Rocketseat🚀 na trilha React do Ignite. Nesse m�
   - Typescript
   - Stitches
   - Keen Slider
+  - Stripe
   
 
 ## Ultima atualização 🔃
-- Adicionando componentes Home e Product;
 - Usando Keen Slider para criar carrossel;
+- Usando API Stripe para retorno de produtos;
 
 ## Como utilizar
 - Clone o projeto do repositório
