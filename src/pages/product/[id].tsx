@@ -1,21 +1,103 @@
-import { ImageContainer, ProductContainer, ProductDetails } from "@/src/styles/pages/product"
-import Image from "next/image"
-import { useRouter } from "next/router"
+import { stripe } from "@/src/lib/stripe";
+import {
+  ImageContainer,
+  ProductContainer,
+  ProductDetails,
+} from "@/src/styles/pages/product";
+import axios from "axios";
+import { GetStaticPaths, GetStaticProps } from "next";
+import Image from "next/image";
+import { useRouter } from "next/router";
+import { useState } from "react";
+import Stripe from "stripe";
 
-export default function Product(){
-  const { query } = useRouter()
-  return(
+interface ProductProps {
+  product: {
+    id: string;
+    name: string;
+    imageUrl: string;
+    price: number;
+    description: string;
+    defaultPriceId: string;
+  };
+}
+
+export default function Product({ product }: ProductProps) {
+  const { isFallback } = useRouter();
+  const [isCreatingCheckoutSession,setIsCreatingCheckoutSession] = useState(false)
+
+  if (isFallback) {
+    return (
+      <ProductContainer>
+        <h1>Loading...</h1>
+      </ProductContainer>
+    );
+  }
+
+  async function handleBuyProduct(){
+    try {
+      setIsCreatingCheckoutSession(true)
+      const response = await axios.post('/api/checkout',{
+        priceId:product.defaultPriceId
+      })
+      const { checkoutUrl } = response.data
+
+      window.location.href = checkoutUrl
+    } catch (error) {
+      setIsCreatingCheckoutSession(false)
+      alert('Falha ao redirecionar ao checkout!')
+    }
+    
+  }
+  return (
     <ProductContainer>
       <ImageContainer>
-        <Image src={'https://picsum.photos/200/300'} width={300} height={200}></Image>
+        <Image src={product.imageUrl} width={520} height={480} alt=" "></Image>
       </ImageContainer>
       <ProductDetails>
-        <h1>Camiseta X</h1>
-        <span>R$ 79,00</span>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem accusantium repellat quasi. Reprehenderit perspiciatis, ex odio obcaecati illum nam ipsam labore!</p>
+        <h1>{product.name}</h1>
+        <span>{product.price}</span>
+        <p>{product.description}</p>
 
-        <button>Comprar agora</button>
+        <button onClick={handleBuyProduct} disabled={isCreatingCheckoutSession}>Comprar agora</button>
       </ProductDetails>
     </ProductContainer>
-  )
+  );
 }
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  //Buscar os produtos mais ventidos/acessados
+  return {
+    paths: [{ params: { id: "prod_Ngj7YI28jlO7jk" } }],
+    fallback: true,
+  };
+};
+
+export const getStaticProps: GetStaticProps<any, { id: string }> = async ({
+  params,
+}) => {
+  const productId = params?.id as string;
+
+  const product = await stripe.products.retrieve(productId, {
+    expand: ["default_price"],
+  });
+
+  const price = product.default_price as Stripe.Price;
+  const formatedPrice = new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  }).format(price.unit_amount ? price.unit_amount / 100 : 0);
+  return {
+    props: {
+      product: {
+        id: product.id,
+        name: product.name,
+        imageUrl: product.images[0],
+        price: formatedPrice,
+        description: product.description,
+        defaultPriceId: price.id,
+      },
+    },
+    revalidate: 60 * 60 * 1, //1 hour
+  };
+};

@@ -22,7 +22,7 @@ export const ImageContainer = styled('div',{
   justifyContent:'center',
 
   img:{
-    objectFit:'cover'
+    objectFit:'cover',
   }
 
 })
@@ -58,7 +58,12 @@ export const ProductDetails = styled('div',{
     fontSize:'$md',
     transition: '0.5s',
 
-    '&:hover':{
+    '&:disabled':{
+      opacity:0.8,
+      cursor:'not-allowed'
+    },
+
+    '&:not(:disabled):hover':{
       backgroundColor:'$green300',
     }
   }
