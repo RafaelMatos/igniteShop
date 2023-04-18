@@ -13,8 +13,9 @@ Projeto realizado no curso da Rocketseat🚀 na trilha React do Ignite. Nesse m�
   
 
 ## Ultima atualização 🔃
-- Usando Keen Slider para criar carrossel;
 - Usando API Stripe para retorno de produtos;
+- Sessão de checkout de produto com Stripe
+- Página de compra finalizada.
 
 ## Como utilizar
 - Clone o projeto do repositório
