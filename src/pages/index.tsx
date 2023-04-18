@@ -1,8 +1,4 @@
 import Image from "next/image";
-import tshirt1 from "../assets/tshirts/1.png";
-import tshirt2 from "../assets/tshirts/2.png";
-import tshirt3 from "../assets/tshirts/3.png";
-import tshirt4 from "../assets/tshirts/4.png";
 import { HomeContainer, Product } from "../styles/pages/home";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
@@ -10,6 +6,7 @@ import { stripe } from "../lib/stripe";
 import { GetStaticProps } from "next";
 import Stripe from "stripe";
 import Link from "next/link";
+import Head from "next/head";
 
 interface HomeProps {
   products: {
@@ -29,6 +26,11 @@ export default function Home({ products }: HomeProps) {
   });
 
   return (
+    <>
+    <Head>
+      <link rel="icon" type="image/png" sizes="32x32" href="/logo.png"/>
+      <title>Home | Ignite Shop </title>
+    </Head>
     <HomeContainer ref={sliderRef} className="keen-slider">
       {products.map((product) => {
         return (
@@ -49,6 +51,7 @@ export default function Home({ products }: HomeProps) {
         );
       })}
     </HomeContainer>
+    </>
   );
 }
 

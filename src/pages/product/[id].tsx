@@ -6,6 +6,7 @@ import {
 } from "@/src/styles/pages/product";
 import axios from "axios";
 import { GetStaticPaths, GetStaticProps } from "next";
+import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState } from "react";
@@ -24,7 +25,8 @@ interface ProductProps {
 
 export default function Product({ product }: ProductProps) {
   const { isFallback } = useRouter();
-  const [isCreatingCheckoutSession,setIsCreatingCheckoutSession] = useState(false)
+  const [isCreatingCheckoutSession, setIsCreatingCheckoutSession] =
+    useState(false);
 
   if (isFallback) {
     return (
@@ -34,34 +36,49 @@ export default function Product({ product }: ProductProps) {
     );
   }
 
-  async function handleBuyProduct(){
+  async function handleBuyProduct() {
     try {
-      setIsCreatingCheckoutSession(true)
-      const response = await axios.post('/api/checkout',{
-        priceId:product.defaultPriceId
-      })
-      const { checkoutUrl } = response.data
+      setIsCreatingCheckoutSession(true);
+      const response = await axios.post("/api/checkout", {
+        priceId: product.defaultPriceId,
+      });
+      const { checkoutUrl } = response.data;
 
-      window.location.href = checkoutUrl
+      window.location.href = checkoutUrl;
     } catch (error) {
-      setIsCreatingCheckoutSession(false)
-      alert('Falha ao redirecionar ao checkout!')
+      setIsCreatingCheckoutSession(false);
+      alert("Falha ao redirecionar ao checkout!");
     }
-    
   }
   return (
-    <ProductContainer>
-      <ImageContainer>
-        <Image src={product.imageUrl} width={520} height={480} alt=" "></Image>
-      </ImageContainer>
-      <ProductDetails>
-        <h1>{product.name}</h1>
-        <span>{product.price}</span>
-        <p>{product.description}</p>
+    <>
+      <Head>
+        <title>{product.name} | Ignite Shop </title>
+      </Head>
 
-        <button onClick={handleBuyProduct} disabled={isCreatingCheckoutSession}>Comprar agora</button>
-      </ProductDetails>
-    </ProductContainer>
+      <ProductContainer>
+        <ImageContainer>
+          <Image
+            src={product.imageUrl}
+            width={520}
+            height={480}
+            alt=" "
+          ></Image>
+        </ImageContainer>
+        <ProductDetails>
+          <h1>{product.name}</h1>
+          <span>{product.price}</span>
+          <p>{product.description}</p>
+
+          <button
+            onClick={handleBuyProduct}
+            disabled={isCreatingCheckoutSession}
+          >
+            Comprar agora
+          </button>
+        </ProductDetails>
+      </ProductContainer>
+    </>
   );
 }
 
