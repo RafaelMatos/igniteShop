@@ -1,5 +1,5 @@
 # Ignite Shop 🛒
-Projeto realizado no curso da Rocketseat🚀 na trilha React do Ignite. Nesse módulo criaremos um projeto completo com o framework Next.js. Vamos utilizar StitchesJS, passando por conceitos de SPA, server-side rendering (SSR) e static-site generation (SSG).
+Projeto realizado usando o framework Next.js, desenvolvido no módulo do curso Ignite na Rocketseat🚀. Nesse módulo foi criado um projeto completo para conhecer os fundamentos do framework Next.js, utilizando StitchesJS, passando por conceitos de SPA, Server-Side Rendering (SSR) e Static-Site Generation (SSG) e uso da API do Stripe para retorno de produtos e simulação do processo de compra real em um e-commerce.
 
 <img src='./screenshots/tela.gif' alt='git da tela da aplicação Ignite Shop'>
 
