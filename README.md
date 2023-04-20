@@ -10,12 +10,12 @@ Projeto realizado usando o framework Next.js, desenvolvido no módulo do curso I
   - Stitches
   - Keen Slider
   - Stripe
+  - Phosphor
+  - Radix UI
   
 
 ## Ultima atualização 🔃
-- Usando API Stripe para retorno de produtos;
-- Sessão de checkout de produto com Stripe
-- Página de compra finalizada.
+- Criado modal de carrinho de compras usando Radix-UI (ainda estático);
 
 ## Como utilizar
 - Clone o projeto do repositório

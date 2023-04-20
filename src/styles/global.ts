@@ -14,5 +14,12 @@ export const globalStyles = globalCss({
   'body,input,textaera,button':{
     fontFamily:'Roboto',
     fontWeight:400,
+  },
+  a:{
+    color:'inherit' ,
+  },
+  button:{
+    cursor:'pointer' ,
   }
+  
 })
