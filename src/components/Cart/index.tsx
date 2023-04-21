@@ -13,6 +13,8 @@ import {
 import { X } from "@phosphor-icons/react";
 import Image from "next/image";
 import { useCart } from "@/src/hooks/useCart";
+import { useState } from "react";
+import axios from "axios";
 
 export function Cart() {
   const { cartItems , removeCartItem, cartTotal } = useCart();
@@ -21,6 +23,26 @@ export function Cart() {
     style:'currency',
     currency:'BRL',
   }).format(cartTotal)
+
+  const [isCreatingCheckoutSession, setIsCreatingCheckoutSession] = useState(false);
+
+  async function handleCheckout() {
+    try{
+      setIsCreatingCheckoutSession(true)
+
+      const response = await axios.post('/api/checkout',{
+        products: cartItems
+      })
+      console.log("response:" , response)
+      const { checkoutUrl } = response.data;
+
+      window.location.href = checkoutUrl;
+
+    }catch(err){
+      setIsCreatingCheckoutSession(false)
+      alert('Falha ao redirecionar ao checkout!')
+    }
+  }
 
   return (
     <Dialog.Root>
@@ -68,7 +90,7 @@ export function Cart() {
               <p>{fomatedCartTotal}</p>
             </div>
           </ResumeShop>
-          <CheckoutButton>Finalizar compra</CheckoutButton>
+          <CheckoutButton onClick={handleCheckout} disabled={isCreatingCheckoutSession || cartQuantity <= 0}>Finalizar compra</CheckoutButton>
         </CartContent>
       </Dialog.Portal>
     </Dialog.Root>
