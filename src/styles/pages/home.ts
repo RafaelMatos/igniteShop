@@ -7,6 +7,17 @@ export const HomeContainer = styled("main", {
   marginLeft:'auto',
   minHeight:656,
 });
+
+export const SliderContainer = styled('div',{
+  display: 'flex',
+  gap:'3rem' ,
+  margin:'0 auto' ,
+
+  '.embla_slide':{
+    minWidth:'43.5rem'
+  }
+})
+
 export const Product = styled("div", {
   background: 'linear-gradient(180deg, #1ea483 0%, #7465d4 100%)' ,
   borderRadius:8,
@@ -14,6 +25,8 @@ export const Product = styled("div", {
   position:'relative' ,
 
   overflow: 'hidden',
+  width: '100%',
+  minHeight:656,
 
   display:'flex' ,
   alignItems: 'center',
@@ -36,6 +49,7 @@ export const Product = styled("div", {
     borderRadius:6,
 
     display:'flex' ,
+    
     alignItems:'center',
     justifyContent:'space-between',
 
@@ -54,8 +68,12 @@ export const Product = styled("div", {
       fontSize:'$xl',
       fontWeight:'bold',
       color:'$green300'
+    },
+    div:{
+      display:'flex',
+      flexDirection:'column',
+      gap:4
     }
-    
 
   },
 

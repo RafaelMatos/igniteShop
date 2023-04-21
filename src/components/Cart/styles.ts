@@ -28,8 +28,15 @@ export const CartContent = styled(Dialog.Content,{
     fontSize:'$lg',
     marginBottom:'2rem',
     opacity:0.3 ,
-  }
+  },
 
+  '> section': {
+    display:'flex' ,
+    flexDirection:'column',
+    gap:'1.5rem' ,
+    flex:1 ,
+    overflow: 'auto',
+  }
   
 })
 

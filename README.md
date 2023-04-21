@@ -8,14 +8,15 @@ Projeto realizado usando o framework Next.js, desenvolvido no módulo do curso I
   - React.js
   - Typescript
   - Stitches
-  - Keen Slider
   - Stripe
   - Phosphor
   - Radix UI
+  - Embla Carousel
   
 
 ## Ultima atualização 🔃
 - Criado modal de carrinho de compras usando Radix-UI (ainda estático);
+- Adicionando item ao carrinho de compras;
 
 ## Como utilizar
 - Clone o projeto do repositório
