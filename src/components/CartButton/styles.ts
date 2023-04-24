@@ -12,6 +12,23 @@ export const CartButtonContainer = styled("button", {
   borderRadius: 6,
   border: 0,
 
+  span : {
+    position: 'absolute',
+    width: '1.5rem',
+    height: '1.5rem',
+    borderRadius: '50%',
+    top: 'calc(-1rem / 2)',
+    right: 'calc(-1rem / 2)',
+    color: '$white',
+    border: '2px solid #121214',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: '0.875rem',
+    fontWeight: 'bold',
+    background: '$green500',
+  },
+
   transition: "0.5s",
   
   "&:disabled": {
