@@ -18,9 +18,6 @@ export const CartButtonContainer = styled("button", {
     opacity: 0.6,
     cursor: "not-allowed",
   },
-  // '&:not(:disabled):hover':{
-  //   color:'$gray100' ,
-  // },
 
   variants: {
     color: {
@@ -64,11 +61,4 @@ export const CartButtonContainer = styled("button", {
   },
 });
 
-// gray :{
-//   background:'$gray800',
-//   color:'$gray500' ,
-// },
-// green:{
-//   background:'$green500',
-//   color:'$gray500' ,
-// }
+

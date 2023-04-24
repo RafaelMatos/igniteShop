@@ -15,8 +15,8 @@ Projeto realizado usando o framework Next.js, desenvolvido no módulo do curso I
   
 
 ## Ultima atualização 🔃
-- Criado modal de carrinho de compras usando Radix-UI (ainda estático);
 - Adicionando item ao carrinho de compras;
+- Adicionando skeleton a página home;
 
 ## Como utilizar
 - Clone o projeto do repositório
